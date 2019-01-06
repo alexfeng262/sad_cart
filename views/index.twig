@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product List</title>
+    </head>
+    <body>
+        <div class="container">
+        <h3><a href="/products/create">Create Product</a></h3>
+        <h3><a href="/cart">View Cart</a></h3>
+        <h1>Product List</h1>
+            {% if products is not empty %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Qty</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        {% for product in products %}
+                            <tr>
+                            <td><input type="hidden" value="{{ product._id }}" name='p_id'/></td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.qty }}</td>
+                            {%if product.qty > 0%}
+                            <td>In Stock</td>
+                            {% else %}
+                            <td>No Stock</td>
+                            {% endif %}
+                           
+                            <td><a href="/products/show/{{ product._id }}">View Product</a></td>
+                        
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div>No products found.</div>
+            {% endif %}
+        </div>
+    </body>
+</html>

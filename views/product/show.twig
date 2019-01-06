@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Detail</title>
+    </head>
+    <body>
+        <div class="container">
+            <h3><a href="/products">Product List</a></h3>
+            <h1>Product Detail</h1>
+            <form action="/cart/add" method="post">
+            <input type="hidden" value="{{ product._id }}" name = "id"/>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>{{ product.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>Price</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                     <tr>
+                        <td>Qty</td>
+                        <td>{{ product.qty }}</td>
+                    </tr>
+                    <tr>
+                        <td>Items</td>
+                        <td>
+                            <select name="item">
+                                <option value = '1'>1</option>
+                                <option value = '2'>2</option>
+                                <option value = '3'>3</option>
+                                <option value = '4'>4</option>
+                                <option value = '5'>5</option>
+                                <option value = '6'>6</option>
+                                <option value = '7'>7</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3><button type="submit">Add to cart</button></h3>
+        </div>
+    </body>
+</html>
